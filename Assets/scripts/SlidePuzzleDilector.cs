@@ -8,6 +8,10 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
 {
     // ピース
     [SerializeField] List<GameObject> pieces;
+    [SerializeField] GameObject targetPiece;   // ゴール対象のピース
+    [SerializeField] Vector2 goalPosition;     // ゴール座標
+    [SerializeField] float goalTolerance = 0.01f; // 誤差許容値
+
     // ゲームクリア時に表示されるボタン
     [SerializeField] GameObject buttonRetry;
     [SerializeField] GameObject buttonEnd;
@@ -22,6 +26,9 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
 
     //ボタンが押されているか
     bool button = false;
+
+    //色を変えることができるピース
+    GameObject colorChangeablePiece;
 
     // Start is called before the first frame update
     void Start()
@@ -76,12 +83,19 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
                 // ヒットしたゲームオブジェクト
                 GameObject hitPiece = hit2d.collider.gameObject;
 
-                if(button)
+                //まだ選ばれていなければこのピースを色変更可能にする
+                if (colorChangeablePiece == null)
+                {
+                    colorChangeablePiece = hitPiece;
+                }
+
+                //ボタンが押されたら選ばれた1つのピースだけ色変更可能
+                if (button)
                 {
                     ColorChange(hitPiece);
                     button = false;
                 }
-                
+
                 if (hitPiece.tag == "nomove")
                 {
                     highlight.transform.position = hitPiece.transform.position;
@@ -101,29 +115,13 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
                 // クリア判定
                 buttonRetry.SetActive(true);
 
-                // 正解の位置と違うピースを探す
-                /*for (int i = 0; i < pieces.Count; i++)
+                // クリア判定
+                if (Vector2.Distance(targetPiece.transform.position, goalPosition) < goalTolerance)
                 {
-                    // 現在のポジション
-                    Vector2 position = pieces[i].transform.position;
-                    // 初期位置と違ったらボタンを非表示
-                    if (position != startPositions[i])
-                    {
-                        buttonRetry.SetActive(false);
-                    }
-                }*/
-
-                GameObject targetPiece = pieces[1]; 
-                Vector2 goalPosition = new Vector2(1.5f, -1.5f); //右下の座標
-
-                if ((Vector2)targetPiece.transform.position == goalPosition)
-                {
-                    //buttonRetry.SetActive(true);
                     buttonEnd.SetActive(true);
                 }
                 else
                 {
-                   // buttonRetry.SetActive(false);
                     buttonEnd.SetActive(false);
                 }
 
@@ -140,8 +138,8 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
         PieceDilector pieceDilector = piece.GetComponent<PieceDilector>();
 
         // 動かせないピースはスキップ
-        if (!pieceDilector.isMove && pieceDilector != null)
-        {
+        if (pieceDilector != null && !pieceDilector.isMove)
+            {
             return null;
         }
 
@@ -188,6 +186,9 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
     //カラーチェンジ
     public void ColorChange(GameObject gameObject)
     {
+        //選ばれたピース以外は無視
+        if (gameObject != colorChangeablePiece) return;
+
         PieceDilector pieceDilector = gameObject.GetComponent<PieceDilector>();
 
         if(!pieceDilector.isMove)

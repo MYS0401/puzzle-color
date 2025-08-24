@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleDilector : MonoBehaviour
+public class StageSelectDilector : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -17,8 +17,11 @@ public class TitleDilector : MonoBehaviour
         
     }
 
-    public void ChangeScene()
+    // ステージ番号を引数に受け取ってシーンをロード
+    public void LoadStage(int stageNumber)
     {
-        SceneManager.LoadScene("StageScene");
+        // ステージごとにシーン名を決めておく
+        string sceneName = "PuzzleScene" + stageNumber;
+        SceneManager.LoadScene(sceneName);
     }
 }
