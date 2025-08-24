@@ -6,8 +6,12 @@ public class PieceDilector : MonoBehaviour
 {
     [SerializeField] Material nomove;
     [SerializeField] Material move;
+    [SerializeField] Material doublemove;
 
     public bool isMove = true;
+    public bool isDoublemove = true;
+
+    public GameObject linkedPiece;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +21,7 @@ public class PieceDilector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(tag == "Player")
         {
             return;
@@ -31,8 +36,13 @@ public class PieceDilector : MonoBehaviour
         {
             tag = ("move");
             GetComponent<Renderer>().material.color = move.color;
+            
         }
-        
+
+        if (isDoublemove)
+        {
+            GetComponent<Renderer>().material.color = doublemove.color;
+        }
     }
 
 

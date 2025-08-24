@@ -24,6 +24,9 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
     //ハイライト
     [SerializeField] GameObject highlight;
 
+    //背景
+    [SerializeField] GameObject white;
+
     //ボタンが押されているか
     bool button = false;
 
@@ -37,11 +40,16 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
 
     private int ColorChangeCount;
 
+    //クリアフラグ
+    bool isCleared = false;
+
     // Start is called before the first frame update
     void Start()
     {
        　ColorChangeCount = maxColorChangeCount;
         UpdateColorChangeUI();
+        isCleared = false;
+        white.SetActive(false);
 
         // 初期位置を保存
         startPositions = new List<Vector2>();
@@ -79,6 +87,10 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // クリアしていたら操作不可
+        if (isCleared) return;
+
         // タッチ処理
         if (Input.GetMouseButtonUp(0))
         {
@@ -94,13 +106,13 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
                 GameObject hitPiece = hit2d.collider.gameObject;
 
                 //まだ選ばれていなければこのピースを色変更可能にする
-                if (colorChangeablePiece == null)
+                if (colorChangeablePiece == null && hitPiece.tag == "nomove")
                 {
                     colorChangeablePiece = hitPiece;
                 }
 
                 //ボタンが押されたら選ばれた1つのピースだけ色変更可能
-                if (button && ColorChangeCount > 0)
+                if (button && ColorChangeCount > 0 && hitPiece.tag == "nomove")
                 {
                     ColorChange(hitPiece);
                     button = false;
@@ -128,6 +140,8 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
                 // クリア判定
                 if (Vector2.Distance(targetPiece.transform.position, goalPosition) < goalTolerance)
                 {
+                    isCleared = true;
+                    white.SetActive(true);
                     buttonEnd.SetActive(true);
                 }
                 else
@@ -179,6 +193,25 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
         Vector2 position = pieceA.transform.position;
         pieceA.transform.position = pieceB.transform.position;
         pieceB.transform.position = position;
+
+        //pieceA がペアを持っていたら一緒に動かす
+        PieceDilector pdA = pieceA.GetComponent<PieceDilector>();
+        if (pdA != null && pdA.linkedPiece != null)
+        {
+            // linkedPieceも同じようにpieceBと入れ替える
+            Vector2 posLinked = pdA.linkedPiece.transform.position;
+            pdA.linkedPiece.transform.position = pieceB.transform.position;
+            pieceB.transform.position = posLinked;
+        }
+
+        //pieceB がペアを持っている場合も処理
+        PieceDilector pdB = pieceB.GetComponent<PieceDilector>();
+        if (pdB != null && pdB.linkedPiece != null)
+        {
+            Vector2 posLinked = pdB.linkedPiece.transform.position;
+            pdB.linkedPiece.transform.position = pieceA.transform.position;
+            pieceA.transform.position = posLinked;
+        }
     }
 
     // リトライボタン
@@ -197,7 +230,7 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
     public void ColorChange(GameObject gameObject)
     {
         //選ばれたピース以外は無視
-        if (gameObject != colorChangeablePiece) return;
+        //if (gameObject != colorChangeablePiece) return;
 
         PieceDilector pieceDilector = gameObject.GetComponent<PieceDilector>();
 
