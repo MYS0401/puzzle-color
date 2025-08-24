@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 9de2cd041309c0b4cb0aa37514f9be66
   - enabled: 1
-    path: Assets/Scenes/PuzzleScene.unity
+    path: Assets/Scenes/StageScene.unity
+    guid: 881182650d325c94190a863294766170
+  - enabled: 1
+    path: Assets/Scenes/PuzzleScene1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/ResultScene.unity

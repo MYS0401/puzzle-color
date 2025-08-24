@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SlidePuzzleSceneDirector : MonoBehaviour
 {
-    // ピース
-    [SerializeField] List<GameObject> pieces;
+    [SerializeField] List<GameObject> pieces; //パズルピース
     [SerializeField] GameObject targetPiece;   // ゴール対象のピース
     [SerializeField] Vector2 goalPosition;     // ゴール座標
     [SerializeField] float goalTolerance = 0.01f; // 誤差許容値
@@ -30,9 +30,19 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
     //色を変えることができるピース
     GameObject colorChangeablePiece;
 
+    // 残り回数表示用
+    [SerializeField] TMP_Text colorChangeCountText;
+    // 初期の回数
+    [SerializeField] int maxColorChangeCount = 1;
+
+    private int ColorChangeCount;
+
     // Start is called before the first frame update
     void Start()
     {
+       　ColorChangeCount = maxColorChangeCount;
+        UpdateColorChangeUI();
+
         // 初期位置を保存
         startPositions = new List<Vector2>();
         foreach (var item in pieces)
@@ -90,7 +100,7 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
                 }
 
                 //ボタンが押されたら選ばれた1つのピースだけ色変更可能
-                if (button)
+                if (button && ColorChangeCount > 0)
                 {
                     ColorChange(hitPiece);
                     button = false;
@@ -195,6 +205,16 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
         {
             pieceDilector.isMove = true;
         }
+
+        // 回数を減らす
+        ColorChangeCount--;
+        UpdateColorChangeUI();
+    }
+
+    // UI更新
+    private void UpdateColorChangeUI()
+    {
+        colorChangeCountText.text = "" +　ColorChangeCount;
     }
 
     //カラーチェンジボタン
