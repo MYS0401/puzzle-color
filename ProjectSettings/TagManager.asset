@@ -6,6 +6,7 @@ TagManager:
   tags:
   - nomove
   - move
+  - doublemove
   layers:
   - Default
   - TransparentFX

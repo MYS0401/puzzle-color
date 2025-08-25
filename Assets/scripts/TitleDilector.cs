@@ -21,4 +21,9 @@ public class TitleDilector : MonoBehaviour
     {
         SceneManager.LoadScene("StageScene");
     }
+
+    public void EndGame()
+    {
+        Application.Quit();
+    }
 }
