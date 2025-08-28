@@ -247,7 +247,7 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
     // UI更新
     private void UpdateColorChangeUI()
     {
-        colorChangeCountText.text = "" +　ColorChangeCount;
+        colorChangeCountText.text = "" + ColorChangeCount;
     }
 
     //カラーチェンジボタン
