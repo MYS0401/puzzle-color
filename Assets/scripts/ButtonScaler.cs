@@ -3,9 +3,9 @@ using UnityEngine.EventSystems;
 
 public class ButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
-    private Vector3 originalScale;
-    [SerializeField] private float hoverScale = 1.1f;
-    [SerializeField] private float pressedScale = 0.95f;
+    private Vector3 originalScale;@//Å‰‚Ì‘å‚«‚³
+    [SerializeField] private float hoverScale = 1.1f; 
+    [SerializeField] private float pressedScale = 0.95f;@//‘I‘ğ‚µ‚½‚Æ‚«‚ÌŠg‘å”ä—¦
 
     void Start()
     {

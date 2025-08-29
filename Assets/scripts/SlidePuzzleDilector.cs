@@ -118,6 +118,7 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
                     button = false;
                 }
 
+                //動かないピースが選択されたときハイライトをつける
                 if (hitPiece.tag == "nomove")
                 {
                     highlight.transform.position = hitPiece.transform.position;

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PieceDilector : MonoBehaviour
 {
+    //ピースの色
     [SerializeField] Material nomove;
     [SerializeField] Material move;
     [SerializeField] Material doublemove;
 
+    //ピースの種類
     public bool isMove = true;
     public bool isDoublemove = true;
 
