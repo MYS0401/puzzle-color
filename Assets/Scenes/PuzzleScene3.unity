@@ -269,8 +269,8 @@ MonoBehaviour:
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
   isMove: 1
-  isDoublemove: 1
-  linkedPiece: {fileID: 2045367068}
+  isDoublemove: 0
+  linkedPiece: {fileID: 0}
 --- !u!1 &282781258
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +417,7 @@ MonoBehaviour:
   nomove: {fileID: 2100000, guid: eb9090e3a63857b49bcb6ea1d1ea0b22, type: 2}
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
-  isMove: 0
+  isMove: 1
   isDoublemove: 0
   linkedPiece: {fileID: 0}
 --- !u!1 &440343863
@@ -700,8 +700,8 @@ MonoBehaviour:
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
   isMove: 1
-  isDoublemove: 1
-  linkedPiece: {fileID: 1367808069}
+  isDoublemove: 0
+  linkedPiece: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   nomove: {fileID: 2100000, guid: eb9090e3a63857b49bcb6ea1d1ea0b22, type: 2}
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
-  isMove: 0
+  isMove: 1
   isDoublemove: 0
   linkedPiece: {fileID: 0}
 --- !u!1 &853862987
@@ -1223,8 +1223,8 @@ MonoBehaviour:
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
   isMove: 1
-  isDoublemove: 0
-  linkedPiece: {fileID: 0}
+  isDoublemove: 1
+  linkedPiece: {fileID: 2045367068}
 --- !u!1 &857088521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,11 +1277,11 @@ MonoBehaviour:
   buttonRetry: {fileID: 970635427}
   buttonEnd: {fileID: 440343863}
   shuffleCount: 0
-  stageNumber: 1
+  stageNumber: 3
   highlight: {fileID: 923362994}
   white: {fileID: 1082917657}
   colorChangeCountText: {fileID: 2102544656}
-  maxColorChangeCount: 1
+  maxColorChangeCount: 2
 --- !u!4 &857088523
 Transform:
   m_ObjectHideFlags: 0
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   nomove: {fileID: 2100000, guid: eb9090e3a63857b49bcb6ea1d1ea0b22, type: 2}
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
-  isMove: 0
+  isMove: 1
   isDoublemove: 0
   linkedPiece: {fileID: 0}
 --- !u!1 &1367808069
@@ -2135,7 +2135,7 @@ MonoBehaviour:
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
   isMove: 1
   isDoublemove: 1
-  linkedPiece: {fileID: 0}
+  linkedPiece: {fileID: 1897983195}
 --- !u!1 &1511943456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,7 +2513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1-1
+  m_text: 1-3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3019,7 +3019,7 @@ MonoBehaviour:
   nomove: {fileID: 2100000, guid: eb9090e3a63857b49bcb6ea1d1ea0b22, type: 2}
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
-  isMove: 1
+  isMove: 0
   isDoublemove: 0
   linkedPiece: {fileID: 0}
 --- !u!1 &1897983195
@@ -3169,8 +3169,8 @@ MonoBehaviour:
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
   isMove: 1
-  isDoublemove: 0
-  linkedPiece: {fileID: 0}
+  isDoublemove: 1
+  linkedPiece: {fileID: 1367808069}
 --- !u!1 &1930715495
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,7 +3317,7 @@ MonoBehaviour:
   nomove: {fileID: 2100000, guid: eb9090e3a63857b49bcb6ea1d1ea0b22, type: 2}
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
-  isMove: 1
+  isMove: 0
   isDoublemove: 0
   linkedPiece: {fileID: 0}
 --- !u!1 &1946769444
@@ -3466,7 +3466,7 @@ MonoBehaviour:
   nomove: {fileID: 2100000, guid: eb9090e3a63857b49bcb6ea1d1ea0b22, type: 2}
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
-  isMove: 1
+  isMove: 0
   isDoublemove: 0
   linkedPiece: {fileID: 0}
 --- !u!1 &2045367068
@@ -3617,7 +3617,7 @@ MonoBehaviour:
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
   isMove: 1
   isDoublemove: 1
-  linkedPiece: {fileID: 9005554}
+  linkedPiece: {fileID: 853862987}
 --- !u!1 &2066401535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,7 +3764,7 @@ MonoBehaviour:
   nomove: {fileID: 2100000, guid: eb9090e3a63857b49bcb6ea1d1ea0b22, type: 2}
   move: {fileID: 2100000, guid: cdcdd324bf49b8d4fb714899e74923ff, type: 2}
   doublemove: {fileID: 2100000, guid: 2a9c7dc9015ca244aa550edeef7fcc89, type: 2}
-  isMove: 1
+  isMove: 0
   isDoublemove: 0
   linkedPiece: {fileID: 0}
 --- !u!1 &2070709478

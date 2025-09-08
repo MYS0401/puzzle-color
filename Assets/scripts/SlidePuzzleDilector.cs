@@ -18,6 +18,9 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
     // シャッフル回数
     [SerializeField] int shuffleCount;
 
+    //
+    [SerializeField] int stageNumber;
+
     // 初期位置
     List<Vector2> startPositions;
 
@@ -218,7 +221,7 @@ public class SlidePuzzleSceneDirector : MonoBehaviour
     // リトライボタン
     public void OnClickRetry()
     {
-        SceneManager.LoadScene("PuzzleScene");
+        SceneManager.LoadScene("PuzzleScene" + stageNumber);
     }
 
     //シーン移行

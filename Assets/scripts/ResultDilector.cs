@@ -17,8 +17,14 @@ public class ResultDilector : MonoBehaviour
         
     }
 
-    public void ChangeScene()
+    public void ChangeTitleScene()
     {
         SceneManager.LoadScene("TitleScene");
     }
+
+    public void ChangeStageScene()
+    {
+        SceneManager.LoadScene("StageScene");
+    }
+
 }
